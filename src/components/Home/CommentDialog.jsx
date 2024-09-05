@@ -69,9 +69,13 @@ const CommentDialog = ({ open, setOpen }) => {
 
     return (
         <Dialog open={open}>
-            <DialogContent onInteractOutside={() => setOpen(false)} className="max-w-5xl p-0 flex flex-col">
+            <DialogContent
+                onInteractOutside={() => setOpen(false)}
+                // className="max-w-5xl bg-purple-200 p-0 flex flex-col"
+                className="max-w-80 sm:max-w-5xl max-h-[60vh] rounded-md overflow-y-auto  p-0 flex flex-col"
+            >
                 {/* <div className=" flex flex-col flex-1"> */}
-                <div className=" flex flex-col sm:flex-row flex-1">
+                <div className=" flex flex-col sm:flex-row flex-1 relative">
                     {/* <div className=" w-1/2"> */}
                     <div className=" w-full sm:w-1/2 p-3">
                         <img
@@ -115,7 +119,7 @@ const CommentDialog = ({ open, setOpen }) => {
                             <div className=" flex items-center gap-1">
                                 <input
                                     type="text"
-                                    placeholder="Write   Comment..."
+                                    placeholder="type comment..."
                                     name="comment"
                                     value={commentText}
                                     onChange={changeCommentHandler}
