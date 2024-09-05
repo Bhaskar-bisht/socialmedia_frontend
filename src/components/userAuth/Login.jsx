@@ -55,8 +55,6 @@ const Login = () => {
             });
 
             if (res.data.success) {
-                console.log("Login res User", res);
-
                 dispatch(setAuthUser(res.data.user));
                 dispatch(setSelectPost(null));
                 dispatch(setPosts([]));
