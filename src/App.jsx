@@ -5,14 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { io } from "socket.io-client";
 import "./App.css";
-// import ChatPage from "./components/Home/ChatPage";
-// import EditUserProfile from "./components/Home/EditUserProfile";
-// import Home from "./components/Home/Home";
-// import ProtectedRoute from "./components/Home/ProtectedRoute";
-// import MainLayout from "./components/Layout/MainLayout";
-// import Login from "./components/userAuth/Login";
-// import Signup from "./components/userAuth/Signup";
-// import Profile from "./components/UserProfile/Profile";
 import Loader from "./components/Home/Loader";
 import { setOnlineUser } from "./redux/slice/chatSlice";
 import { setLikeNotification } from "./redux/slice/realTimeNoficationSlice";
@@ -26,9 +18,6 @@ const Login = lazy(() => import("./components/userAuth/Login"));
 const Signup = lazy(() => import("./components/userAuth/Signup"));
 const Profile = lazy(() => import("./components/UserProfile/Profile"));
 const ProtectedRoute = lazy(() => import("./components/Home/ProtectedRoute"));
-// const { setSocket } = lazy(() => import("./redux/slice/socketSlice"));
-// const { setOnlineUser } = lazy(() => import("./redux/slice/chatSlice"));
-// const { setLikeNotification } = lazy(() => import("./redux/slice/realTimeNoficationSlice"));
 
 const browserRouter = createBrowserRouter([
     {
@@ -91,7 +80,7 @@ function App() {
     useEffect(() => {
         if (user) {
             // isme hum apne backend ke socket io ko frontend ke socket io ke saat connect karange
-            const socketio = io("http://localhost:8080", {
+            const socketio = io("https://socialmedia-application-xgfl.onrender.com", {
                 query: {
                     // hum {userId} is user id ko backend main access kar rahe hai to hum is thare se userid backend main send kar sakte hai
                     userId: user?._id,
