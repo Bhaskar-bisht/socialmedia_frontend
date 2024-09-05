@@ -70,8 +70,10 @@ const CommentDialog = ({ open, setOpen }) => {
     return (
         <Dialog open={open}>
             <DialogContent onInteractOutside={() => setOpen(false)} className="max-w-5xl p-0 flex flex-col">
-                <div className=" flex flex-1">
-                    <div className=" w-1/2">
+                {/* <div className=" flex flex-col flex-1"> */}
+                <div className=" flex flex-col sm:flex-row flex-1">
+                    {/* <div className=" w-1/2"> */}
+                    <div className=" w-full sm:w-1/2 p-3">
                         <img
                             src={selectedPost?.postImage}
                             alt="user post"
@@ -79,7 +81,8 @@ const CommentDialog = ({ open, setOpen }) => {
                         />
                     </div>
 
-                    <div className=" w-1/2 flex flex-col justify-between">
+                    {/* <div className=" w-1/2 flex flex-col justify-between"> */}
+                    <div className=" w-full flex flex-col justify-between">
                         <div className=" flex items-center justify-between p-4">
                             <div className=" flex gap-3 items-center">
                                 <Link>
@@ -105,14 +108,14 @@ const CommentDialog = ({ open, setOpen }) => {
                                 </DialogContent>
                             </Dialog>
                         </div>
-                        <div className=" flex-1 overflow-y-auto max-h-96 p-4">
+                        <div className=" flex-1 overflow-y-auto max-h-52 p-4">
                             {comment && comment.map((comment) => <Comment key={comment?._id} comment={comment} />)}
                         </div>
-                        <div className=" p-4">
+                        <div className=" p-4 w-full">
                             <div className=" flex items-center gap-1">
                                 <input
                                     type="text"
-                                    placeholder="Add Comment..."
+                                    placeholder="Write   Comment..."
                                     name="comment"
                                     value={commentText}
                                     onChange={changeCommentHandler}
